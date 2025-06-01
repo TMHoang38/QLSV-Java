@@ -1,0 +1,15 @@
+# Format: MaSV|HoTen|NgaySinh|GioiTinh|DiaChi|SoDienThoai|Email|QueQuan|DanToc|TonGiao|MaLop|TrangThai
+# Ngày sinh format: dd/MM/yyyy
+# Giới tính: Nam hoặc Nữ
+# Trạng thái: Đang học, Bảo lưu, Nghỉ học, Tốt nghiệp, Đình chỉ
+
+SV016|Nguyễn Văn An|15/03/2005|Nam|Hà Nội|0901234567|an.nv@example.com|Hà Nội|Kinh|Không|KTPM01|Đang học
+SV017|Trần Thị Bình|20/04/2005|Nữ|Hải Phòng|0912345678|binh.tt@example.com|Hải Phòng|Kinh|Phật giáo|KTPM01|Đang học
+SV018|Lê Văn Cường|25/05/2005|Nam|Nam Định|0923456789|cuong.lv@example.com|Nam Định|Kinh|Không|KTPM01|Đang học
+SV019|Phạm Thị Dung|30/06/2005|Nữ|Thái Bình|0934567890|dung.pt@example.com|Thái Bình|Kinh|Không|KTPM01|Đang học
+SV020|Hoàng Văn Em|05/07/2005|Nam|Hà Nam|0945678901|em.hv@example.com|Hà Nam|Kinh|Không|KTPM01|Đang học
+SV021|Ngô Thị Phương|10/08/2005|Nữ|Hà Nội|0956789012|phuong.nt@example.com|Hà Nội|Kinh|Không|HTTT01|Đang học
+SV022|Đỗ Văn Giang|15/09/2005|Nam|Bắc Ninh|0967890123|giang.dv@example.com|Bắc Ninh|Kinh|Không|HTTT01|Đang học
+SV023|Mai Thị Hoa|20/10/2005|Nữ|Hưng Yên|0978901234|hoa.mt@example.com|Hưng Yên|Kinh|Phật giáo|HTTT01|Đang học
+SV024|Vũ Văn Inh|25/11/2005|Nam|Hà Nội|0989012345|inh.vv@example.com|Hà Nội|Kinh|Không|HTTT01|Đang học
+SV025|Lý Thị Kim|28/12/2005|Nữ|Vĩnh Phúc|0990123456|kim.lt@example.com|Vĩnh Phúc|Kinh|Không|HTTT01|Đang học 
