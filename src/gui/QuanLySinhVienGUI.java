@@ -12,6 +12,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import com.toedter.calendar.JDateChooser;
 
 public class QuanLySinhVienGUI extends JPanel {
     private JTable tableSinhVien;
@@ -50,8 +51,14 @@ public class QuanLySinhVienGUI extends JPanel {
         inputPanel.add(txtHoTen);
 
         inputPanel.add(new JLabel("Ngày sinh (dd/MM/yyyy):"));
-        txtNgaySinh = new JTextField();
-        inputPanel.add(txtNgaySinh);
+        JPanel datePanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 0));
+        txtNgaySinh = new JTextField(15);
+        txtNgaySinh.setEditable(false);
+        JButton btnDate = new JButton("...");
+        btnDate.setPreferredSize(new Dimension(30, 20));
+        datePanel.add(txtNgaySinh);
+        datePanel.add(btnDate);
+        inputPanel.add(datePanel);
 
         inputPanel.add(new JLabel("Giới tính:"));
         cboGioiTinh = new JComboBox<>(new String[]{"Nam", "Nữ"});
@@ -136,6 +143,46 @@ public class QuanLySinhVienGUI extends JPanel {
                     hienThiThongTinSinhVien(selectedRow);
                 }
             }
+        });
+
+        // Thêm xử lý sự kiện cho nút chọn ngày
+        JDateChooser dateChooser = new JDateChooser();
+        dateChooser.setDateFormatString("dd/MM/yyyy");
+        btnDate.addActionListener(e -> {
+            // Tạo một JDialog mới mỗi lần hiển thị
+            JDialog dialog = new JDialog((Frame)SwingUtilities.getWindowAncestor(this), "Chọn ngày", true);
+            dialog.setLayout(new BorderLayout());
+            
+            // Tạo một JDateChooser mới mỗi lần hiển thị
+            JDateChooser tempChooser = new JDateChooser();
+            tempChooser.setDateFormatString("dd/MM/yyyy");
+            // Nếu đã có ngày được chọn trước đó, set lại
+            try {
+                if (!txtNgaySinh.getText().trim().isEmpty()) {
+                    tempChooser.setDate(dateFormat.parse(txtNgaySinh.getText().trim()));
+                }
+            } catch (ParseException ex) {
+                // Bỏ qua nếu không parse được ngày
+            }
+            
+            JPanel chooserPanel = new JPanel(new FlowLayout());
+            chooserPanel.add(tempChooser);
+            dialog.add(chooserPanel, BorderLayout.CENTER);
+            
+            JPanel dateButtonPanel = new JPanel(new FlowLayout());
+            JButton btnConfirm = new JButton("Xác nhận");
+            btnConfirm.addActionListener(event -> {
+                if (tempChooser.getDate() != null) {
+                    txtNgaySinh.setText(dateFormat.format(tempChooser.getDate()));
+                }
+                dialog.dispose();
+            });
+            dateButtonPanel.add(btnConfirm);
+            dialog.add(dateButtonPanel, BorderLayout.SOUTH);
+            
+            dialog.pack();
+            dialog.setLocationRelativeTo(btnDate);
+            dialog.setVisible(true);
         });
     }
 
